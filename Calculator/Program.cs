@@ -5,6 +5,7 @@ namespace Calculator
 {
     class Program
     {
+        //Set contants
         const string ADD = "Where Sum = OperandA + OperandB:";
         const string SUBTRACT = "Where Difference = OperandA - OperandB:";
         const string MULTIPLY = "Where Product = OperandA * OperandB:";
@@ -37,9 +38,10 @@ namespace Calculator
             while (isWrong)
             {
                 Console.Write("Please enter OperandA: ");
-                string userInputA = Console.ReadLine();
+                string userInputA = Console.ReadLine();//Get first number from user input
                 float OperandA;
-
+                
+                //Validate first number
                 if (!float.TryParse((userInputA), out OperandA) || userInputA.Contains(" "))
                 {
                     Console.WriteLine("invalid input");
@@ -47,18 +49,19 @@ namespace Calculator
                 else
                 {
                     Console.Write("Please enter OperandB: ");
-                    string userInputB = Console.ReadLine();
+                    string userInputB = Console.ReadLine();//Get second number if first is valid
                     float OperandB;
-
+                    
+                    //Validate second number
                     if (!float.TryParse((userInputB), out OperandB) || userInputB.Contains(" "))
                     {
                         Console.WriteLine("Invalid input. Start again.");
                     }
                     else
                     {
-                        Operand[0] = Convert.ToSingle(OperandA);
-                        Operand[1] = Convert.ToSingle(OperandB); ;
-                        isWrong = false;
+                        Operand[0] = Convert.ToSingle(OperandA); //Add to first index in array
+                        Operand[1] = Convert.ToSingle(OperandB); //Add to second index in array
+                        isWrong = false; //exit loop
                     }
                 }
             }
